@@ -45,8 +45,16 @@ var firstAndPike = {
     for (var i = 0; i < this.simulatedSales.length; i++) {
       var listItemEl = document.createElement('li');
       listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      listItemEl.textContent = this.simulatedSales[i]; // listItemEl = <li class="list-item">content passed from array</li>
-      unorderedEl.appendChild(listItemEl); // adds list items to list
+      if (i < 6) {
+        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else if (6 < i < 15) {
+        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else {
+        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }
     }
     articleEl.appendChild(unorderedEl); // adds list to article
     sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
@@ -90,8 +98,16 @@ var seaTacAirport = {
     for (var i = 0; i < this.simulatedSales.length; i++) {
       var listItemEl = document.createElement('li');
       listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      listItemEl.textContent = this.simulatedSales[i]; // listItemEl = <li class="list-item">content passed from array</li>
-      unorderedEl.appendChild(listItemEl); // adds list items to list
+      if (i < 6) {
+        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else if (6 < i < 15) {
+        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else {
+        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }
     }
     articleEl.appendChild(unorderedEl); // adds list to article
     sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
@@ -135,8 +151,16 @@ var seattleCenter = {
     for (var i = 0; i < this.simulatedSales.length; i++) {
       var listItemEl = document.createElement('li');
       listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      listItemEl.textContent = this.simulatedSales[i]; // listItemEl = <li class="list-item">content passed from array</li>
-      unorderedEl.appendChild(listItemEl); // adds list items to list
+      if (i < 6) {
+        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else if (6 < i < 15) {
+        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else {
+        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }
     }
     articleEl.appendChild(unorderedEl); // adds list to article
     sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
@@ -180,8 +204,16 @@ var capitolHill = {
     for (var i = 0; i < this.simulatedSales.length; i++) {
       var listItemEl = document.createElement('li');
       listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      listItemEl.textContent = this.simulatedSales[i]; // listItemEl = <li class="list-item">content passed from array</li>
-      unorderedEl.appendChild(listItemEl); // adds list items to list
+      if (i < 6) {
+        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else if (6 < i < 15) {
+        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else {
+        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }
     }
     articleEl.appendChild(unorderedEl); // adds list to article
     sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
@@ -225,8 +257,16 @@ var alki = {
     for (var i = 0; i < this.simulatedSales.length; i++) {
       var listItemEl = document.createElement('li');
       listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      listItemEl.textContent = this.simulatedSales[i]; // listItemEl = <li class="list-item">content passed from array</li>
-      unorderedEl.appendChild(listItemEl); // adds list items to list
+      if (i < 6) {
+        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else if (6 < i < 15) {
+        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      } else {
+        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }
     }
     articleEl.appendChild(unorderedEl); // adds list to article
     sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
