@@ -32,6 +32,10 @@ nav {
   margin: auto;
 }
 
+a {
+  color: red;
+}
+
 nav ul {
   margin: 0px;
   padding: 5px 0px 5px 30px;
@@ -40,6 +44,7 @@ nav ul {
 nav li {
   display: inline;
   text-decoration: none;
+  color: red;
   margin-right: 40px;
 }
 

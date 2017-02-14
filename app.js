@@ -28,7 +28,8 @@ var firstAndPike = {
     this.simulatedSales.push(total);
   },
   genRandNumCustomers: function() {
-    return Math.floor((Math.random() * this.maxHourlyCustomers) + this.minHourlyCustomers);
+    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
+    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
   },
   renderToPage: function() {
     var headingEl = document.createElement('h1');
@@ -84,7 +85,8 @@ var seaTacAirport = {
     this.simulatedSales.push(total);
   },
   genRandNumCustomers: function() {
-    return Math.floor((Math.random() * this.maxHourlyCustomers) + this.minHourlyCustomers);
+    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
+    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
   },
   renderToPage: function() {
     var headingEl = document.createElement('h1');
@@ -140,7 +142,8 @@ var seattleCenter = {
     this.simulatedSales.push(total);
   },
   genRandNumCustomers: function() {
-    return Math.floor((Math.random() * this.maxHourlyCustomers) + this.minHourlyCustomers);
+    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
+    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
   },
   renderToPage: function() {
     var headingEl = document.createElement('h1');
@@ -196,7 +199,8 @@ var capitolHill = {
     this.simulatedSales.push(total);
   },
   genRandNumCustomers: function() {
-    return Math.floor((Math.random() * this.maxHourlyCustomers) + this.minHourlyCustomers);
+    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
+    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
   },
   renderToPage: function() {
     var headingEl = document.createElement('h1');
@@ -252,7 +256,8 @@ var alki = {
     this.simulatedSales.push(total);
   },
   genRandNumCustomers: function() {
-    return Math.floor((Math.random() * this.maxHourlyCustomers) + this.minHourlyCustomers);
+    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
+    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
   },
   renderToPage: function() {
     var headingEl = document.createElement('h1');
@@ -310,3 +315,61 @@ getSimulatedData();
 renderAllResults();
 
 // END OF APPLICATION
+
+// // CONSTRUCTOR FUNCTION EXAMPLE
+// var hourlyCounts = [];
+// function CookieStore(name, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) {
+//   this.name = name;
+//   this.minHourlyCustomers = minHourlyCustomers;
+//   this.maxHourlyCustomers = maxHourlyCustomers;
+//   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
+//   this.hoursOpenPerDay = 15;
+//   this.simulatedSales = [];
+// }
+//
+// CookieStore.prototype.genRandNumCustomers = function() {
+//   var range = this.maxHourlyCustomers - this.minHourlyCustomers;
+//   return Math.floor((Math.random() * range + 1) + this.minHourlyCustomers);
+// };
+//
+// CookieStore.prototype.genSimulatedHourlySales = function() {
+//   var simSales;
+//   var total = 0;
+//   for (var i = 0; i < this.hoursOpenPerDay; i++) {
+//     var randNumCustomers = this.genRandNumCustomers();
+//     simSales = Math.ceil(this.avgCookiesPerCustomer * randNumCustomers);
+//     this.simulatedSales.push(simSales);
+//     total += simSales;
+//   }
+//   this.simulatedSales.push(total);
+// };
+//
+// var stores = [];
+//
+// // RENDER TO TABLE ON PAGE
+// var tableEl = document.createElement('table');
+//
+// for (var i = 0; i < stores.length; i++) {
+//   var currentStore = stores[i];
+//
+//   var rowEl = document.createElement('tr');
+//   tableEl.appendChild(rowEl);
+//
+//   var nameEl = document.createElement('th');
+//   nameEl.textContent = currentStore.name; //<th>currentStore.name</th>
+//   rowEl.appendChild(nameEl);
+//
+//   var minCustEl = document.createElement('td');
+//   minCustEl.textContent = currentStore.minHourlyCustomers;
+//   rowEl.appendChild(minCustEl);
+//
+//   var maxCustEl = document.createElement('td');
+//   maxCustEl.textContent = currentStore.maxHourlyCustomers;
+//   rowEl.appendChild(maxCustEl);
+//
+//   var avgCookiesEl = document.createElement('td');
+//   avgCookiesEl.textContent = document.createElement('td');
+//   rowEl.appendChild(avgCookiesEl);
+// }
+//
+// document.body.appendChild(tableEl);
