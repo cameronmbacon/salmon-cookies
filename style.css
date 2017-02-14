@@ -2,7 +2,6 @@
   border: solid black 1px;
 }
 
-#first-user-heading{
-  background-color: purple;
-  color: green;
+article {
+  display: inline-block;
 }
