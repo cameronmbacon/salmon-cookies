@@ -1,0 +1,92 @@
+body {
+  align: center;
+  padding: 0px;
+  background-color: #51371C;
+}
+
+.wrapper {
+  width: auto;
+  align: center;
+}
+
+#main-content {
+  width: 90%
+  align: center;
+  margin-top: 2%;
+}
+
+header {
+  align: center;
+  background-image: url("https://github.com/codefellows/seattle-201d19/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true");
+  background-position: center;
+  width: 787px;
+  height: 219px;
+  margin: auto;
+  padding: 0px;
+}
+
+nav {
+  font-size: 16pt;
+  align: center;
+  height: 30px;
+  margin: auto;
+}
+
+nav ul {
+  margin: 0px;
+  padding: 5px 0px 5px 30px;
+}
+
+nav li {
+  display: inline;
+  text-decoration: none;
+  margin-right: 40px;
+}
+
+#salmon {
+  font-family: Barrio;
+  font-size: 72pt;
+  text-align: left;
+  padding: 0px 20px 0px 0px;
+  margin: 0px;
+  color: blue;
+}
+
+#cookies {
+  font-family: Barrio;
+  font-size: 72pt;
+  text-align: right;
+  padding: 0px 0px 0px 20px;
+  margin: 0px;
+  color: green;
+}
+
+#title {
+  text-align: center;
+  margin-top: 5%;
+}
+
+#home-content {
+  margin-top: 5%;
+  font-family: Georgia, serif;
+  background-color: #67704B;
+}
+
+article {
+  display: inline-block;
+  width: 15%;
+}
+
+aside {
+  align: right;
+  display: block;
+}
+
+.locations {
+  background-color: #63A46C;
+
+}
+
+.list-item {
+  font-family: Helvetica, sans-serif;
+}
