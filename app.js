@@ -48,7 +48,10 @@ var firstAndPike = {
       if (i < 6) {
         listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (6 < i < 15) {
+      } else if (i === 6) {
+        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }else if (i > 6 && i < 15) {
         listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
       } else {
@@ -101,7 +104,10 @@ var seaTacAirport = {
       if (i < 6) {
         listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (6 < i < 15) {
+      } else if (i === 6) {
+        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }else if (i > 6 && i < 15) {
         listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
       } else {
@@ -154,7 +160,10 @@ var seattleCenter = {
       if (i < 6) {
         listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (6 < i < 15) {
+      } else if (i === 6) {
+        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }else if (i > 6 && i < 15) {
         listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
       } else {
@@ -207,7 +216,10 @@ var capitolHill = {
       if (i < 6) {
         listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (6 < i < 15) {
+      } else if (i === 6) {
+        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }else if (i > 6 && i < 15) {
         listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
       } else {
@@ -260,7 +272,10 @@ var alki = {
       if (i < 6) {
         listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (6 < i < 15) {
+      } else if (i === 6) {
+        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
+        unorderedEl.appendChild(listItemEl); // adds list items to list
+      }else if (i > 6 && i < 15) {
         listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
         unorderedEl.appendChild(listItemEl); // adds list items to list
       } else {
