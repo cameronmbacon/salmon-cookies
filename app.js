@@ -9,7 +9,7 @@
 // ----------DECLARE AND INITIALIZE VARIABLES----------
 var kalEl = document.createElement('table'); // creates <table></table>
 var tableBodyEl = document.createElement('tbody'); // creates <tbody></tbody>
-var jorEl = document.getElementById('main-content'); // outer-most parent node to append child to
+var jorEl = document.getElementById('main-content'); // outer-most parent node to appendChild to
 
 // --------------CONSTRUCTOR FUNCTION--------------
 function CookieStore(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) {
@@ -135,3 +135,31 @@ generateTableFooter(); //renders the hourly totals and grand total to the table 
 
 jorEl.appendChild(kalEl);
 // --------------END APPLICATION--------------
+
+console.log('---------------EVENT LISTENERS---------------');
+
+var storeFormEl = document.getElementById('new-store-form');
+
+storeFormEl.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+
+  event.preventDefault(); //prevents page reload and submit to server
+  event.stopPropagation(); //kills bubbling and capturing
+
+  var storeName = event.target.storeName.value;
+  var minCustomers = parseInt(event.target.minCust.value);
+  var maxCustomers = parseInt(event.target.maxCust.value);
+  var avgCookies = parseInt(event.target.avgCookies.value);
+
+  // console.log('User Pressed Submit Button on Form!');
+  // console.log('storeName = ' + storeName);
+  // console.log('minCustomers = ' + minCustomers);
+  // console.log('maxCustomers = ' + maxCustomers);
+  // console.log('avgCookies = ' + avgCookies);
+
+  var store = new CookieStore(storeName, minCustomers, maxCustomers, avgCookies);
+  console.log(store);
+  store.generateSimulatedHourlySales();
+  console.log(store.simulatedSales);
+};

@@ -5,6 +5,7 @@ body {
 }
 
 .wrapper {
+  display: inline-block;
   width: auto;
   align: center;
 }
@@ -59,9 +60,9 @@ nav li {
 
 #cookies {
   font-family: Barrio;
-  font-size: 72pt;
+  font-size: 76pt;
   text-align: right;
-  padding: 0px 0px 0px 20px;
+  padding: 0px;
   margin: 0px;
   color: green;
 }
@@ -73,7 +74,10 @@ nav li {
 }
 
 #home-content {
+  display: inline-block;
   margin-top: 5%;
+  margin-right: 2%;
+  padding-right: 2%
   font-family: Georgia, serif;
   background-color: #67704B;
 }
@@ -84,11 +88,13 @@ article {
 }
 
 aside {
-  align: right;
+  background-color: #63A46C;
+  border: solid purple 2px;
   display: block;
 }
 
-.locations {
+.locations article {
+  border: solid purple 1.5px;
   background-color: #63A46C;
 
 }
@@ -124,4 +130,20 @@ th, td {
   align-content: center;
   vertical-align: middle;
   padding: 20px 10px;
+}
+
+label, input {
+  font-size: 18pt;
+  color: white;
+  display: block;
+}
+
+fieldset input {
+  color: black;
+  font-size: 16pt;
+}
+
+#new-store-form {
+  width: 50%;
+  margin: auto;
 }
