@@ -67,6 +67,7 @@ nav li {
 }
 
 #title {
+  font-size: 36pt;
   text-align: center;
   margin-top: 5%;
 }
@@ -107,12 +108,20 @@ table {
 }
 
 thead {
+  align-content: center;
   display: table-header-group;
   vertical-align: middle;
 }
 
 tr td {
+  align-content: center;
   border: solid white 1px;
   vertical-align: middle;
   font-family: Helvetica, sans-serif;
+}
+
+th, td {
+  align-content: center;
+  vertical-align: middle;
+  padding: 20px 10px;
 }
