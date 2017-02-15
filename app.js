@@ -134,3 +134,4 @@ for (var i = 0; i < stores.length; i++) {
 generateTableFooter(); //renders the hourly totals and grand total to the table footer
 
 jorEl.appendChild(kalEl);
+// --------------END APPLICATION--------------
