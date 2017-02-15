@@ -10,6 +10,7 @@
 var kalEl = document.createElement('table'); // creates <table></table>
 var tableBodyEl = document.createElement('tbody'); // creates <tbody></tbody>
 var jorEl = document.getElementById('main-content'); // outer-most parent node to appendChild to
+var storeNames = [];
 
 // --------------CONSTRUCTOR FUNCTION--------------
 function CookieStore(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) {
@@ -19,6 +20,7 @@ function CookieStore(storeName, minHourlyCustomers, maxHourlyCustomers, avgCooki
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
   this.hoursOpenPerDay = 15; // assigned 15 in constructor function since each store is open 6am - 8am
   this.simulatedSales = []; // randNumcustomers * avgCookiesPerCustomer pushed into this array
+  storeNames.push(storeName);
 }
 
 // ----------------METHODS----------------
@@ -86,6 +88,7 @@ function generateTableHeader() {
 function generateTableFooter() {
   var tHCount = 17; //total of 17 td's and th's to be made in table footer
   var tableFooterEl = document.createElement('tfoot'); //<tfoot></tfoot>
+  tableFooterEl.setAttribute('id', 'footer');
   var rowEl = document.createElement('tr'); //<tr></tr>
   var hourlyTotal = 0;
   var grandTotal = 0;
@@ -143,23 +146,31 @@ var storeFormEl = document.getElementById('new-store-form');
 storeFormEl.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
-
   event.preventDefault(); //prevents page reload and submit to server
   event.stopPropagation(); //kills bubbling and capturing
+  if (storeNames.includes(event.target.storeName.value)){
+    alert('Store name taken, please choose another one.');
+  } else {
 
-  var storeName = event.target.storeName.value;
-  var minCustomers = parseInt(event.target.minCust.value);
-  var maxCustomers = parseInt(event.target.maxCust.value);
-  var avgCookies = parseInt(event.target.avgCookies.value);
+    var storeName = event.target.storeName.value;
+    var minCustomers = parseInt(event.target.minCust.value);
+    var maxCustomers = parseInt(event.target.maxCust.value);
+    var avgCookies = parseInt(event.target.avgCookies.value);
 
-  // console.log('User Pressed Submit Button on Form!');
-  // console.log('storeName = ' + storeName);
-  // console.log('minCustomers = ' + minCustomers);
-  // console.log('maxCustomers = ' + maxCustomers);
-  // console.log('avgCookies = ' + avgCookies);
+    // console.log('User Pressed Submit Button on Form!');
+    // console.log('storeName = ' + storeName);
+    // console.log('minCustomers = ' + minCustomers);
+    // console.log('maxCustomers = ' + maxCustomers);
+    // console.log('avgCookies = ' + avgCookies);
 
-  var store = new CookieStore(storeName, minCustomers, maxCustomers, avgCookies);
-  console.log(store);
-  store.generateSimulatedHourlySales();
-  console.log(store.simulatedSales);
+    var store = new CookieStore(storeName, minCustomers, maxCustomers, avgCookies);
+    console.log(store);
+    stores.push(store);
+    store.generateSimulatedHourlySales();
+    console.log(store.simulatedSales);
+    var oldFooter = document.getElementById('footer');
+    oldFooter.parentNode.removeChild(oldFooter);
+    store.renderToTable();
+    generateTableFooter();
+  }
 };
