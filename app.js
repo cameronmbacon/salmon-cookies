@@ -3,13 +3,13 @@
 /*
  * This is an application for a fake business called Salmon Cookies
  * Created By: Cameron Bacon on 02/13/2017
- * Last Modified: 02/13/2017
+ * Last Modified: 02/14/2017
 */
 
 // ----------DECLARE AND INITIALIZE VARIABLES----------
-var jarEl = document.createElement('table'); // creates <table></table>
+var kalEl = document.createElement('table'); // creates <table></table>
 var tableBodyEl = document.createElement('tbody'); // creates <tbody></tbody>
-var sectionEl = document.getElementById('main-content');
+var jorEl = document.getElementById('main-content'); // outer-most parent node to append child to
 
 // --------------CONSTRUCTOR FUNCTION--------------
 function CookieStore(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) {
@@ -17,11 +17,11 @@ function CookieStore(storeName, minHourlyCustomers, maxHourlyCustomers, avgCooki
   this.minHourlyCustomers = minHourlyCustomers;
   this.maxHourlyCustomers = maxHourlyCustomers;
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
-  this.hoursOpenPerDay = 15;
-  this.simulatedSales = [];
+  this.hoursOpenPerDay = 15; // assigned 15 in constructor function since each store is open 6am - 8am
+  this.simulatedSales = []; // randNumcustomers * avgCookiesPerCustomer pushed into this array
 }
 
-// --------------METHODS--------------
+// ----------------METHODS----------------
 // Calculates simulated sales and pushes them to simulatedSales array
 // NOW WITH RANDOM NUMBER GENERATING CAPABILITIES!!!
 CookieStore.prototype.generateSimulatedHourlySales = function() {
@@ -37,40 +37,40 @@ CookieStore.prototype.generateSimulatedHourlySales = function() {
   this.simulatedSales.push(total);
 };
 
-//Creates element nodes for table, populates them with data and renders to page
+//Creates element nodes for table, then populates them with data and renders to page
 CookieStore.prototype.renderToTable = function() {
-  var rowEl = document.createElement('tr');
-  var thEl = document.createElement('th');
+  var rowEl = document.createElement('tr'); //<tr></tr>
+  var thEl = document.createElement('th'); //<th></th>
   thEl.textContent = this.storeName;
   rowEl.appendChild(thEl);
   for (var i = 0; i <= this.hoursOpenPerDay; i++) {
-    var tableDataEl = document.createElement('td'); // <td></td>
-    tableDataEl.textContent = this.simulatedSales[i];
+    var tableDataEl = document.createElement('td'); //<td></td>
+    tableDataEl.textContent = this.simulatedSales[i]; //<td>number from array</td>
     rowEl.appendChild(tableDataEl);
   }
-  jarEl.appendChild(rowEl);
+  kalEl.appendChild(rowEl);
 };
 
 // ------------FUNCTION DECLARATIONS------------
-// This function renders the table header to the sales page
+//This function renders the table header to the sales page
 function generateTableHeader() {
-  var hours = 17;
-  var tableHeaderEl = document.createElement('thead'); // <thead></thead>
-  var rowEl = document.createElement('tr'); // <tr></tr>
-  for (var i = 0; i <= hours; i++) {
+  var tHCount = 17;  //there are 16 <th></th> elements to be created after the blank ==> stops when i <= tHCount
+  var tableHeaderEl = document.createElement('thead'); //<thead></thead>
+  var rowEl = document.createElement('tr'); //<tr></tr>
+  for (var i = 0; i <= tHCount; i++) {
     if (i === 0) {
-      var thEl = document.createElement('th'); // <th></th> stays blank
+      var thEl = document.createElement('th'); //<th></th> stays blank
       rowEl.appendChild(thEl);
-    } else if (i > 0 && i < hours) {
-      var thEl = document.createElement('th');
+    } else if (i > 0 && i < tHCount) {
+      var thEl = document.createElement('th'); //<th></th>
       if (i < 7) {
-        thEl.textContent = 5 + i + 'am';
+        thEl.textContent = 5 + i + ':00am';
         rowEl.appendChild(thEl);
       } else if (i === 7) {
-        thEl.textContent = 5 + i + 'pm';
+        thEl.textContent = 5 + i + ':00pm';
         rowEl.appendChild(thEl);
       } else {
-        thEl.textContent = i - 7 + 'pm';
+        thEl.textContent = i - 7 + ':00pm';
         rowEl.appendChild(thEl);
       }
     } else {
@@ -79,35 +79,34 @@ function generateTableHeader() {
     }
   }
   tableHeaderEl.appendChild(rowEl);
-  jarEl.appendChild(tableHeaderEl);
+  kalEl.appendChild(tableHeaderEl);
 };
 
-// This function renders the table footer to the sales page
+//This function renders the table footer to the sales page
 function generateTableFooter() {
-  var hours = 17;
-  var tableFooterEl = document.createElement('tfoot'); // <tfoot></tfoot>
-  var rowEl = document.createElement('tr'); // <tr></tr>
+  var tHCount = 17;
+  var tableFooterEl = document.createElement('tfoot'); //<tfoot></tfoot>
+  var rowEl = document.createElement('tr'); //<tr></tr>
   var hourlyTotal = 0;
   var grandTotal = 0;
-  for (var i = 0; i <= hours; i++) {
+  for (var i = 0; i <= tHCount; i++) {
     if (i === 0) {
-      var tableDataEl = document.createElement('th'); // <td></td>
-      tableDataEl.textContent = 'Totals';
-      rowEl.appendChild(tableDataEl);
-    } else if (i > 0 && i < hours) {
+      var tHeaderEl = document.createElement('th'); //<th></th>
+      tHeaderEl.textContent = 'Totals';
+      rowEl.appendChild(tHeaderEl);
+    } else if (i > 0 && i < tHCount) {
       for (var j = 0; j < stores.length; j++) {
         hourlyTotal += stores[j].simulatedSales[i - 1];
       }
       var tableTotalsEl = document.createElement('td');
       tableTotalsEl.textContent = hourlyTotal;
-      console.log(tableTotalsEl);
       rowEl.appendChild(tableTotalsEl);
       grandTotal += hourlyTotal;
-      hourlyTotal = 0;
+      hourlyTotal = 0; //assigned 0 to begin adding each store's total for the next hour
     }
   }
   tableFooterEl.appendChild(rowEl);
-  jarEl.appendChild(tableFooterEl);
+  kalEl.appendChild(tableFooterEl);
 };
 
 // Creating objects using constructor function
@@ -129,9 +128,8 @@ generateTableHeader();
 
 for (var i = 0; i < stores.length; i++) {
   stores[i].renderToTable();
-//  console.log(stores[i].simulatedSales);
 }
 
 generateTableFooter();
 
-sectionEl.appendChild(jarEl);
+jorEl.appendChild(kalEl);
