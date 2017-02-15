@@ -95,3 +95,24 @@ aside {
 .list-item {
   font-family: Helvetica, sans-serif;
 }
+
+table {
+  background-color: #67704B;
+  border: solid white 1px;
+  font-size: 24px;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+}
+
+tr td {
+  border: solid white 1px;
+  vertical-align: middle;
+  font-family: Helvetica, sans-serif;
+}
