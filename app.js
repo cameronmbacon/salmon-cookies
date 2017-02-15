@@ -91,20 +91,19 @@ function generateTableFooter() {
   var grandTotal = 0;
   for (var i = 0; i <= hours; i++) {
     if (i === 0) {
-      var tableDataEl = document.createElement('td'); // <td></td>
+      var tableDataEl = document.createElement('th'); // <td></td>
       tableDataEl.textContent = 'Totals';
       rowEl.appendChild(tableDataEl);
     } else if (i > 0 && i < hours) {
       for (var j = 0; j < stores.length; j++) {
         hourlyTotal += stores[j].simulatedSales[i - 1];
       }
-      tableDataEl.textContent = hourlyTotal;
-      rowEl.appendChild(tableDataEl);
+      var tableTotalsEl = document.createElement('td');
+      tableTotalsEl.textContent = hourlyTotal;
+      console.log(tableTotalsEl);
+      rowEl.appendChild(tableTotalsEl);
       grandTotal += hourlyTotal;
       hourlyTotal = 0;
-    } else {
-      var tableDataEl = document.createElement('td');
-      tableDataEl.textContent = grandTotal;
     }
   }
   tableFooterEl.appendChild(rowEl);
@@ -130,9 +129,9 @@ generateTableHeader();
 
 for (var i = 0; i < stores.length; i++) {
   stores[i].renderToTable();
-  console.log(stores[i].simulatedSales);
+//  console.log(stores[i].simulatedSales);
 }
 
-//generateTableFooter();
+generateTableFooter();
 
 sectionEl.appendChild(jarEl);
