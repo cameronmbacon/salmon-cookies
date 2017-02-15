@@ -6,370 +6,133 @@
  * Last Modified: 02/13/2017
 */
 
-// ALL LOCATIONS REPRESENTED AS OBJECT LITERALS
+// ----------DECLARE AND INITIALIZE VARIABLES----------
+var jarEl = document.createElement('table'); // creates <table></table>
+var tableBodyEl = document.createElement('tbody'); // creates <tbody></tbody>
+var sectionEl = document.getElementById('main-content');
 
-//First and Pike location
-var firstAndPike = {
-  name: 'First and Pike',
-  minHourlyCustomers: 23,
-  maxHourlyCustomers: 65,
-  avgCookiesPerCustomer: 6.3,
-  hoursOpenPerDay: 15,
-  simulatedSales: [],
-  genSimulatedHourlySales: function() {
-    var simSales;
-    var total = 0;
-    for (var i = 0; i < this.hoursOpenPerDay; i++) {
-      var randNumCustomers = this.genRandNumCustomers();
-      simSales = Math.ceil(this.avgCookiesPerCustomer * randNumCustomers);
-      this.simulatedSales.push(simSales);
-      total += simSales;
-    }
-    this.simulatedSales.push(total);
-  },
-  genRandNumCustomers: function() {
-    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
-    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
-  },
-  renderToPage: function() {
-    var headingEl = document.createElement('h1');
-    headingEl.setAttribute('class', 'store-name'); // headingEl = <h1 class="store-name"></h1>
-    var articleEl = document.createElement('article');
-    articleEl.setAttribute('class', 'store'); // articleEl = <article class="store"></article>
-    var unorderedEl = document.createElement('ul');
-    unorderedEl.setAttribute('class', 'list'); // unorderedEl = <ul class="list"></ul>
-    var sectionEl = document.getElementById('main-content'); //parent container
+// --------------CONSTRUCTOR FUNCTION--------------
+function CookieStore(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) {
+  this.storeName = storeName;
+  this.minHourlyCustomers = minHourlyCustomers;
+  this.maxHourlyCustomers = maxHourlyCustomers;
+  this.avgCookiesPerCustomer = avgCookiesPerCustomer;
+  this.hoursOpenPerDay = 15;
+  this.simulatedSales = [];
+}
 
-    headingEl.textContent = this.name; // populates heading with store name
-    articleEl.appendChild(headingEl);
-
-    for (var i = 0; i < this.simulatedSales.length; i++) {
-      var listItemEl = document.createElement('li');
-      listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      if (i < 6) {
-        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (i === 6) {
-        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      }else if (i > 6 && i < 15) {
-        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else {
-        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      }
-    }
-    articleEl.appendChild(unorderedEl); // adds list to article
-    sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
+// --------------METHODS--------------
+// Calculates simulated sales and pushes them to simulatedSales array
+// NOW WITH RANDOM NUMBER GENERATING CAPABILITIES!!!
+CookieStore.prototype.generateSimulatedHourlySales = function() {
+  var range = this.maxHourlyCustomers - this.minHourlyCustomers;
+  var simSales;
+  var total = 0;
+  for (var i = 0; i < this.hoursOpenPerDay; i++) {
+    var randNumCustomers = Math.floor((Math.random() * range + 1) + this.minHourlyCustomers);
+    simSales = Math.ceil(this.avgCookiesPerCustomer * randNumCustomers);
+    this.simulatedSales.push(simSales);
+    total += simSales;
   }
+  this.simulatedSales.push(total);
 };
 
-//SeaTac Airport location
-var seaTacAirport = {
-  name: 'SeaTac Airport',
-  minHourlyCustomers: 3,
-  maxHourlyCustomers: 24,
-  avgCookiesPerCustomer: 1.2,
-  hoursOpenPerDay: 15,
-  simulatedSales: [],
-  genSimulatedHourlySales: function() {
-    var simSales;
-    var total = 0;
-    for (var i = 0; i < this.hoursOpenPerDay; i++) {
-      var randNumCustomers = this.genRandNumCustomers();
-      simSales = Math.ceil(this.avgCookiesPerCustomer * randNumCustomers);
-      this.simulatedSales.push(simSales);
-      total += simSales;
-    }
-    this.simulatedSales.push(total);
-  },
-  genRandNumCustomers: function() {
-    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
-    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
-  },
-  renderToPage: function() {
-    var headingEl = document.createElement('h1');
-    headingEl.setAttribute('class', 'store-name'); // headingEl = <h1 class="store-name"></h1>
-    var articleEl = document.createElement('article');
-    articleEl.setAttribute('class', 'store'); // articleEl = <article class="store"></article>
-    var unorderedEl = document.createElement('ul');
-    unorderedEl.setAttribute('class', 'list'); // unorderedEl = <ul class="list"></ul>
-    var sectionEl = document.getElementById('main-content'); //parent container
-
-    headingEl.textContent = this.name; //
-    articleEl.appendChild(headingEl);
-
-    for (var i = 0; i < this.simulatedSales.length; i++) {
-      var listItemEl = document.createElement('li');
-      listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      if (i < 6) {
-        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (i === 6) {
-        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      }else if (i > 6 && i < 15) {
-        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else {
-        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      }
-    }
-    articleEl.appendChild(unorderedEl); // adds list to article
-    sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
+//Creates element nodes for table, populates them with data and renders to page
+CookieStore.prototype.renderToTable = function() {
+  var rowEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = this.storeName;
+  rowEl.appendChild(thEl);
+  for (var i = 0; i <= this.hoursOpenPerDay; i++) {
+    var tableDataEl = document.createElement('td'); // <td></td>
+    tableDataEl.textContent = this.simulatedSales[i];
+    rowEl.appendChild(tableDataEl);
   }
+  jarEl.appendChild(rowEl);
 };
 
-//Seattle Center location
-var seattleCenter = {
-  name: 'Seattle Center',
-  minHourlyCustomers: 11,
-  maxHourlyCustomers: 38,
-  avgCookiesPerCustomer: 3.7,
-  hoursOpenPerDay: 15,
-  simulatedSales: [],
-  genSimulatedHourlySales: function() {
-    var simSales;
-    var total = 0;
-    for (var i = 0; i < this.hoursOpenPerDay; i++) {
-      var randNumCustomers = this.genRandNumCustomers();
-      simSales = Math.ceil(this.avgCookiesPerCustomer * randNumCustomers);
-      this.simulatedSales.push(simSales);
-      total += simSales;
-    }
-    this.simulatedSales.push(total);
-  },
-  genRandNumCustomers: function() {
-    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
-    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
-  },
-  renderToPage: function() {
-    var headingEl = document.createElement('h1');
-    headingEl.setAttribute('class', 'store-name'); // headingEl = <h1 class="store-name"></h1>
-    var articleEl = document.createElement('article');
-    articleEl.setAttribute('class', 'store'); // articleEl = <article class="store"></article>
-    var unorderedEl = document.createElement('ul');
-    unorderedEl.setAttribute('class', 'list'); // unorderedEl = <ul class="list"></ul>
-    var sectionEl = document.getElementById('main-content'); //parent container
-
-    headingEl.textContent = this.name; //
-    articleEl.appendChild(headingEl);
-
-    for (var i = 0; i < this.simulatedSales.length; i++) {
-      var listItemEl = document.createElement('li');
-      listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      if (i < 6) {
-        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (i === 6) {
-        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      }else if (i > 6 && i < 15) {
-        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
+// ------------FUNCTION DECLARATIONS------------
+// This function renders the table header to the sales page
+function generateTableHeader() {
+  var hours = 17;
+  var tableHeaderEl = document.createElement('thead'); // <thead></thead>
+  var rowEl = document.createElement('tr'); // <tr></tr>
+  for (var i = 0; i <= hours; i++) {
+    if (i === 0) {
+      var thEl = document.createElement('th'); // <th></th> stays blank
+      rowEl.appendChild(thEl);
+    } else if (i > 0 && i < hours) {
+      var thEl = document.createElement('th');
+      if (i < 7) {
+        thEl.textContent = 5 + i + 'am';
+        rowEl.appendChild(thEl);
+      } else if (i === 7) {
+        thEl.textContent = 5 + i + 'pm';
+        rowEl.appendChild(thEl);
       } else {
-        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
+        thEl.textContent = i - 7 + 'pm';
+        rowEl.appendChild(thEl);
       }
+    } else {
+      thEl.textContent = 'Daily Location Total';
+      rowEl.appendChild(thEl);
     }
-    articleEl.appendChild(unorderedEl); // adds list to article
-    sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
   }
+  tableHeaderEl.appendChild(rowEl);
+  jarEl.appendChild(tableHeaderEl);
 };
 
-//Capitol Hill location
-var capitolHill = {
-  name: 'Capitol Hill',
-  minHourlyCustomers: 20,
-  maxHourlyCustomers: 38,
-  avgCookiesPerCustomer: 2.3,
-  hoursOpenPerDay: 15,
-  simulatedSales: [],
-  genSimulatedHourlySales: function() {
-    var simSales;
-    var total = 0;
-    for (var i = 0; i < this.hoursOpenPerDay; i++) {
-      var randNumCustomers = this.genRandNumCustomers();
-      simSales = Math.ceil(this.avgCookiesPerCustomer * randNumCustomers);
-      this.simulatedSales.push(simSales);
-      total += simSales;
-    }
-    this.simulatedSales.push(total);
-  },
-  genRandNumCustomers: function() {
-    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
-    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
-  },
-  renderToPage: function() {
-    var headingEl = document.createElement('h1');
-    headingEl.setAttribute('class', 'store-name'); // headingEl = <h1 class="store-name"></h1>
-    var articleEl = document.createElement('article');
-    articleEl.setAttribute('class', 'store'); // articleEl = <article class="store"></article>
-    var unorderedEl = document.createElement('ul');
-    unorderedEl.setAttribute('class', 'list'); // unorderedEl = <ul class="list"></ul>
-    var sectionEl = document.getElementById('main-content'); //parent container
-
-    headingEl.textContent = this.name; //
-    articleEl.appendChild(headingEl);
-
-    for (var i = 0; i < this.simulatedSales.length; i++) {
-      var listItemEl = document.createElement('li');
-      listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      if (i < 6) {
-        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (i === 6) {
-        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      }else if (i > 6 && i < 15) {
-        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else {
-        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
+// This function renders the table footer to the sales page
+function generateTableFooter() {
+  var hours = 17;
+  var tableFooterEl = document.createElement('tfoot'); // <tfoot></tfoot>
+  var rowEl = document.createElement('tr'); // <tr></tr>
+  var hourlyTotal = 0;
+  var grandTotal = 0;
+  for (var i = 0; i <= hours; i++) {
+    if (i === 0) {
+      var tableDataEl = document.createElement('td'); // <td></td>
+      tableDataEl.textContent = 'Totals';
+      rowEl.appendChild(tableDataEl);
+    } else if (i > 0 && i < hours) {
+      for (var j = 0; j < stores.length; j++) {
+        hourlyTotal += stores[j].simulatedSales[i - 1];
       }
+      tableDataEl.textContent = hourlyTotal;
+      rowEl.appendChild(tableDataEl);
+      grandTotal += hourlyTotal;
+      hourlyTotal = 0;
+    } else {
+      var tableDataEl = document.createElement('td');
+      tableDataEl.textContent = grandTotal;
     }
-    articleEl.appendChild(unorderedEl); // adds list to article
-    sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
   }
+  tableFooterEl.appendChild(rowEl);
+  jarEl.appendChild(tableFooterEl);
 };
 
-//Alki location
-var alki = {
-  name: 'Alki',
-  minHourlyCustomers: 2,
-  maxHourlyCustomers: 16,
-  avgCookiesPerCustomer: 4.6,
-  hoursOpenPerDay: 15,
-  simulatedSales: [],
-  genSimulatedHourlySales: function() {
-    var simSales;
-    var total = 0;
-    for (var i = 0; i < this.hoursOpenPerDay; i++) {
-      var randNumCustomers = this.genRandNumCustomers();
-      simSales = Math.ceil(this.avgCookiesPerCustomer * randNumCustomers);
-      this.simulatedSales.push(simSales);
-      total += simSales;
-    }
-    this.simulatedSales.push(total);
-  },
-  genRandNumCustomers: function() {
-    var range = this.maxHourlyCustomers - this.minHourlyCustomers;
-    return Math.floor((Math.random() * range) + this.minHourlyCustomers);
-  },
-  renderToPage: function() {
-    var headingEl = document.createElement('h1');
-    headingEl.setAttribute('class', 'store-name'); // headingEl = <h1 class="store-name"></h1>
-    var articleEl = document.createElement('article');
-    articleEl.setAttribute('class', 'store'); // articleEl = <article class="store"></article>
-    var unorderedEl = document.createElement('ul');
-    unorderedEl.setAttribute('class', 'list'); // unorderedEl = <ul class="list"></ul>
-    var sectionEl = document.getElementById('main-content'); //parent container
-
-    headingEl.textContent = this.name; //
-    articleEl.appendChild(headingEl);
-
-    for (var i = 0; i < this.simulatedSales.length; i++) {
-      var listItemEl = document.createElement('li');
-      listItemEl.setAttribute('class', 'list-item'); // listItemEl = <li class="list-item"></li>
-      if (i < 6) {
-        listItemEl.textContent = 6 + i + 'am: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else if (i === 6) {
-        listItemEl.textContent = 6 + i + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      }else if (i > 6 && i < 15) {
-        listItemEl.textContent = i - 6 + 'pm: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)pm: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      } else {
-        listItemEl.textContent = 'Total: ' + this.simulatedSales[i] + ' cookies'; // listItemEl = <li class="list-item">(6+i)am: blank cookies</li>
-        unorderedEl.appendChild(listItemEl); // adds list items to list
-      }
-    }
-    articleEl.appendChild(unorderedEl); // adds list to article
-    sectionEl.appendChild(articleEl); // adds article to <section id="main-content"></section>
-  }
-};
+// Creating objects using constructor function
+var pikePlace = new CookieStore('Pike Place', 23, 65, 6.3);
+var seaTacAirport = new CookieStore('Seatac Airport', 3, 24, 1.2);
+var seattleCenter = new CookieStore('Seattle Center', 11, 38, 3.7);
+var capitolHill = new CookieStore('Capitol Hill', 20, 38, 2.3);
+var alki = new CookieStore('Alki', 2, 16, 4.6);
 
 // this array contains my objects
-var locations = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
+var stores = [pikePlace, seaTacAirport, seattleCenter, capitolHill, alki];
 
-// Function declarations
-function getSimulatedData() {
-  for (var i = 0; i < locations.length; i++) {
-    locations[i].genSimulatedHourlySales();
-  }
-};
+// ------------START APPLICATION------------
+for (var i = 0; i < stores.length; i++) {
+  stores[i].generateSimulatedHourlySales();
+}
 
-function renderAllResults() {
-  for (var i = 0; i < locations.length; i++) {
-    locations[i].renderToPage();
-  }
-};
+generateTableHeader();
 
-//START OF APPLICATION
+for (var i = 0; i < stores.length; i++) {
+  stores[i].renderToTable();
+  console.log(stores[i].simulatedSales);
+}
 
-getSimulatedData();
-renderAllResults();
+//generateTableFooter();
 
-// END OF APPLICATION
-
-// // CONSTRUCTOR FUNCTION EXAMPLE
-// var hourlyCounts = [];
-// function CookieStore(name, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) {
-//   this.name = name;
-//   this.minHourlyCustomers = minHourlyCustomers;
-//   this.maxHourlyCustomers = maxHourlyCustomers;
-//   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
-//   this.hoursOpenPerDay = 15;
-//   this.simulatedSales = [];
-// }
-//
-// CookieStore.prototype.genRandNumCustomers = function() {
-//   var range = this.maxHourlyCustomers - this.minHourlyCustomers;
-//   return Math.floor((Math.random() * range + 1) + this.minHourlyCustomers);
-// };
-//
-// CookieStore.prototype.genSimulatedHourlySales = function() {
-//   var simSales;
-//   var total = 0;
-//   for (var i = 0; i < this.hoursOpenPerDay; i++) {
-//     var randNumCustomers = this.genRandNumCustomers();
-//     simSales = Math.ceil(this.avgCookiesPerCustomer * randNumCustomers);
-//     this.simulatedSales.push(simSales);
-//     total += simSales;
-//   }
-//   this.simulatedSales.push(total);
-// };
-//
-// var stores = [];
-//
-// // RENDER TO TABLE ON PAGE
-// var tableEl = document.createElement('table');
-//
-// for (var i = 0; i < stores.length; i++) {
-//   var currentStore = stores[i];
-//
-//   var rowEl = document.createElement('tr');
-//   tableEl.appendChild(rowEl);
-//
-//   var nameEl = document.createElement('th');
-//   nameEl.textContent = currentStore.name; //<th>currentStore.name</th>
-//   rowEl.appendChild(nameEl);
-//
-//   var minCustEl = document.createElement('td');
-//   minCustEl.textContent = currentStore.minHourlyCustomers;
-//   rowEl.appendChild(minCustEl);
-//
-//   var maxCustEl = document.createElement('td');
-//   maxCustEl.textContent = currentStore.maxHourlyCustomers;
-//   rowEl.appendChild(maxCustEl);
-//
-//   var avgCookiesEl = document.createElement('td');
-//   avgCookiesEl.textContent = document.createElement('td');
-//   rowEl.appendChild(avgCookiesEl);
-// }
-//
-// document.body.appendChild(tableEl);
+sectionEl.appendChild(jarEl);
