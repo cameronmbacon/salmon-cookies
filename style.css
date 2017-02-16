@@ -43,10 +43,11 @@ nav ul {
 }
 
 nav li {
-  display: inline;
-  text-decoration: none;
+  display: inline-block;
+  list-style: none;
   color: red;
   margin-right: 40px;
+  border-left: solid blue 2px;
 }
 
 #salmon {
@@ -80,11 +81,30 @@ nav li {
   padding-right: 2%
   font-family: Georgia, serif;
   background-color: #67704B;
+  width: 72%;
+}
+
+#mission {
+  display: inline-block;
+  margin-right: 2%;
+  padding-right: 2%
+  font-family: Georgia, serif;
+  background-color: #67704B;
+  width: 72%;
+}
+
+#events {
+  display: inline-block;
+  margin-right: 2%;
+  padding-right: 2%
+  font-family: Georgia, serif;
+  background-color: #67704B;
+  width: 72%;
 }
 
 article {
   display: inline-block;
-  width: 15%;
+  width: auto;
 }
 
 aside {
@@ -93,14 +113,32 @@ aside {
   display: block;
 }
 
+.locations {
+  float: right;
+  width: 25%;
+}
+
 .locations article {
   border: solid purple 1.5px;
   background-color: #63A46C;
-
+  display: block;
+  width: auto;
 }
 
 .list-item {
   font-family: Helvetica, sans-serif;
+}
+
+footer {
+  clear: both;
+  background-color: blue;
+}
+
+.footer-nav {
+  display: inline-block;
+  list-style: none;
+  text-align: left;
+  margin: 0 20px 0 0;
 }
 
 table {
