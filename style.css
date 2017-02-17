@@ -1,11 +1,3 @@
-body {
-  align: center;
-  padding: 0px;
-  background-color: black;
-  height: auto;
-  text-align: center;
-}
-
 .wrapper {
   display: inline-block;
   width: 80%;
@@ -18,150 +10,10 @@ body {
   margin-top: 2%;
 }
 
-header {
-  align: center;
-  background-image: url("salmon.png");
-  background-position: center;
-  background-color: #51371C;
-  width: 787px;
-  height: 219px;
-  margin: auto;
-  padding: 0px;
-}
-
-nav {
-  font-size: 16pt;
-  align: center;
-  height: 30px;
-  margin: auto;
-}
-
-a {
-  color: red;
-}
-
-nav ul {
-  margin: 0px;
-  padding: 5px 0px 5px 30px;
-}
-
-nav li {
-  display: inline-block;
-  list-style: none;
-  color: red;
-  margin-right: 40px;
-  border-left: solid blue 2px;
-}
-
-#salmon {
-  font-family: Barrio;
-  font-size: 72pt;
-  text-align: left;
-  padding: 0px 20px 0px 0px;
-  margin: 0px;
-  color: blue;
-}
-
-#cookies {
-  font-family: Barrio;
-  font-size: 76pt;
-  text-align: right;
-  padding: 0px;
-  margin: 0px;
-  color: green;
-}
-
-#title {
-  font-size: 36pt;
+#sales-title {
   text-align: center;
-  margin-top: 5%;
-}
-
-#home-content {
-  float: left;
-  display: inline-block;
-  margin-top: 5%;
-  margin-right: 2%;
-  padding-right: 2%
-  font-family: Georgia, serif;
-  background-color: #67704B;
-  width: 72%;
-}
-
-#mission {
-  float: left;
-  display: inline-block;
-  margin-right: 2%;
-  padding-right: 2%
-  font-family: Georgia, serif;
-  background-color: #67704B;
-  width: 72%;
-}
-
-#events {
-  float: left;
-  display: inline-block;
-  margin-right: 2%;
-  padding-right: 2%
-  font-family: Georgia, serif;
-  background-color: #67704B;
-  width: 72%;
-}
-
-#company-info {
-  width: 72%;
-  display: inline-block;
-}
-
-.paragraphs {
-  text-align: left;
-  width: 45%;
-}
-
-.images {
-  display: inline;
-  width: 45%;
-}
-
-article {
-  display: inline-block;
-  width: auto;
-}
-
-aside {
-  margin-top: 40px;
-  clear: both;
-  background-color: #63A46C;
-  border: solid purple 2px;
-  display: block;
-}
-
-.locations {
-  float: right;
-  width: 25%;
-}
-
-.locations article {
-  border: solid purple 1.5px;
-  background-color: #63A46C;
-  display: block;
-  width: auto;
-}
-
-.list-item {
-  font-family: Helvetica, sans-serif;
-}
-
-footer {
-  clear: both;
-  background-color: blue;
-}
-
-.footer-nav {
-  display: inline-block;
-  list-style: none;
-  text-align: left;
-  margin: 0 20px 0 0;
+  font-size: 54px;
+  color: green;
 }
 
 table {
@@ -211,6 +63,7 @@ fieldset input {
 
 body {
   background-color: #51371C;
+  border: solid 1px;
 }
 
 header {
@@ -256,7 +109,7 @@ article {
   font-size: 24px;
   background-color: red;
   display: inline-block;
-  text-align: center;dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+  text-align: center;
   width: 47%;
   margin: 0;
   padding: 0;
@@ -267,10 +120,6 @@ article {
   padding; 0px;
   margin: 0px;
 
-}
-
-body {
-  border: solid 1px;
 }
 
 nav li {
