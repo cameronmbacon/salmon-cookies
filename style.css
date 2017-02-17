@@ -20,7 +20,7 @@ body {
 
 header {
   align: center;
-  background-image: url("https://github.com/codefellows/seattle-201d19/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true");
+  background-image: url("salmon.png");
   background-position: center;
   background-color: #51371C;
   width: 787px;
@@ -207,4 +207,120 @@ fieldset input {
 #new-store-form {
   width: 50%;
   margin: auto;
+}
+
+body {
+  background-color: #51371C;
+}
+
+header {
+  align: center;
+  background-image: url("https://github.com/codefellows/seattle-201d19/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true");
+  background-position: center;
+  background-color: #51371C;
+  width: 787px;
+  height: 219px;
+  margin: auto;
+  padding: 0px;
+}
+
+#salmon {
+  font-family: Barrio;
+  font-size: 72pt;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  color: blue;
+}
+
+#cookies {
+  font-family: Barrio;
+  font-size: 76pt;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  color: green;
+}
+
+article {
+  background-color: orange;
+  padding: 0px;
+}
+
+.info {
+  display: inline-block;
+  float: none;
+}
+
+.info p {
+  font-size: 24px;
+  background-color: red;
+  display: inline-block;
+  text-align: center;dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+  width: 47%;
+  margin: 0;
+  padding: 0;
+}
+
+.images {
+  display: inline-block;
+  padding; 0px;
+  margin: 0px;
+
+}
+
+body {
+  border: solid 1px;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul {
+  margin: 0px;
+  padding: 5px 0px 5px 30px;
+}
+
+nav {
+  background-color: silver;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+section {
+  background-color: blue;
+  height: auto;
+}
+
+aside {
+  background-color: green;
+}
+
+.locations {
+  background-color: teal;
+}
+
+footer {
+  background-color: green;
+  clear: both;
+}
+
+footer ul li{
+  list-style: none;
+  display: inline-block;
+  margin-left: 2%;
+}
+
+#floatLeft {
+  float: left;
+  width: 74%;
+}
+
+#floatRight {
+  float: right;
+  width: 25%;
 }
