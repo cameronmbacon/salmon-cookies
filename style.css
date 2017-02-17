@@ -1,13 +1,7 @@
-body {
-  align: center;
-  padding: 0px;
-  background-color: #51371C;
-}
-
 .wrapper {
   display: inline-block;
-  width: auto;
-  align: center;
+  width: 80%;
+  background-color: #51371C;
 }
 
 #main-content {
@@ -16,91 +10,10 @@ body {
   margin-top: 2%;
 }
 
-header {
-  align: center;
-  background-image: url("https://github.com/codefellows/seattle-201d19/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true");
-  background-position: center;
-  width: 787px;
-  height: 219px;
-  margin: auto;
-  padding: 0px;
-}
-
-nav {
-  font-size: 16pt;
-  align: center;
-  height: 30px;
-  margin: auto;
-}
-
-a {
-  color: red;
-}
-
-nav ul {
-  margin: 0px;
-  padding: 5px 0px 5px 30px;
-}
-
-nav li {
-  display: inline;
-  text-decoration: none;
-  color: red;
-  margin-right: 40px;
-}
-
-#salmon {
-  font-family: Barrio;
-  font-size: 72pt;
-  text-align: left;
-  padding: 0px 20px 0px 0px;
-  margin: 0px;
-  color: blue;
-}
-
-#cookies {
-  font-family: Barrio;
-  font-size: 76pt;
-  text-align: right;
-  padding: 0px;
-  margin: 0px;
-  color: green;
-}
-
-#title {
-  font-size: 36pt;
+#sales-title {
   text-align: center;
-  margin-top: 5%;
-}
-
-#home-content {
-  display: inline-block;
-  margin-top: 5%;
-  margin-right: 2%;
-  padding-right: 2%
-  font-family: Georgia, serif;
-  background-color: #67704B;
-}
-
-article {
-  display: inline-block;
-  width: 15%;
-}
-
-aside {
-  background-color: #63A46C;
-  border: solid purple 2px;
-  display: block;
-}
-
-.locations article {
-  border: solid purple 1.5px;
-  background-color: #63A46C;
-
-}
-
-.list-item {
-  font-family: Helvetica, sans-serif;
+  font-size: 54px;
+  color: green;
 }
 
 table {
@@ -146,4 +59,117 @@ fieldset input {
 #new-store-form {
   width: 50%;
   margin: auto;
+}
+
+body {
+  background-color: #51371C;
+  border: solid 1px;
+}
+
+header {
+  align: center;
+  background-image: url("https://github.com/codefellows/seattle-201d19/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true");
+  background-position: center;
+  background-color: #51371C;
+  width: 787px;
+  height: 219px;
+  margin: auto;
+  padding: 0px;
+}
+
+#salmon {
+  font-family: Barrio;
+  font-size: 72pt;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  color: blue;
+}
+
+#cookies {
+  font-family: Barrio;
+  font-size: 76pt;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  color: green;
+}
+
+article {
+  background-color: orange;
+  padding: 0px;
+}
+
+.info {
+  display: inline-block;
+  float: none;
+}
+
+.info p {
+  font-size: 24px;
+  background-color: red;
+  display: inline-block;
+  text-align: center;
+  width: 47%;
+  margin: 0;
+  padding: 0;
+}
+
+.images {
+  display: inline-block;
+  padding; 0px;
+  margin: 0px;
+
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul {
+  margin: 0px;
+  padding: 5px 0px 5px 30px;
+}
+
+nav {
+  background-color: silver;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+section {
+  background-color: blue;
+  height: auto;
+}
+
+aside {
+  background-color: green;
+}
+
+.locations {
+  background-color: teal;
+}
+
+footer {
+  background-color: green;
+  clear: both;
+}
+
+footer ul li{
+  list-style: none;
+  display: inline-block;
+  margin-left: 2%;
+}
+
+#floatLeft {
+  float: left;
+  width: 74%;
+}
+
+#floatRight {
+  float: right;
+  width: 25%;
 }
